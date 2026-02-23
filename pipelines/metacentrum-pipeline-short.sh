@@ -42,11 +42,11 @@ python ${REPO_DIR}/mocap-vae-features/train.py --multirun exp=hdm05/all \
 
 #python ${REPO_DIR}/mocap-vae-features/train.py --multirun exp=pku-mmd/cs \
 #    latent_dim=${DIM} beta=${BETA} iteration=${ITER} body_model=pku-mmd \
-#    train_split=${REPO_DIR}/mocap-vae-features/demo_pipeline/splits/CS_train_objects_messif-lines.txt /dev/null 2>&1
+#    train_split=${REPO_DIR}/mocap-vae-features/pipelines/splits/CS_train_objects_messif-lines.txt /dev/null 2>&1
 
 #python ${REPO_DIR}/mocap-vae-features/train.py --multirun exp=pku-mmd/cv \
 #    latent_dim=${DIM} beta=${BETA} iteration=${ITER} body_model=pku-mmd \
-#    train_split=${REPO_DIR}/mocap-vae-features/demo_pipeline/splits/CV_train_objects_messif-lines.txt /dev/null 2>&1
+#    train_split=${REPO_DIR}/mocap-vae-features/pipelines/splits/CV_train_objects_messif-lines.txt /dev/null 2>&1
 
 
 wait
@@ -64,7 +64,7 @@ COMMAND="${JDK_PATH} -jar ${REPO_DIR}/mocap-vae-features/evaluator.jar \
 -fp ${REPO_DIR}/SCL/hdm05/all/model=hdm05_lat-dim=${DIM}_beta=${BETA}/${ITER}/predictions_full.data \
 -k 4 \
 --scl \
--dd ${REPO_DIR}/mocap-vae-features/demo_pipeline/data/category_description.txt \
+-dd ${REPO_DIR}/mocap-vae-features/pipelines/data/category_description.txt \
 "
 # -jar vyhodnocovaci program
 # -fp path ku suboru na vyhodnotenie
@@ -79,10 +79,10 @@ eval "${COMMAND}" >> "${REPO_DIR}/results/scl/hdm05/all/lat_dim=${DIM}_beta=${BE
 COMMAND="${JDK_PATH} -jar ${REPO_DIR}/mocap-vae-features/evaluator.jar \
 -fp ${REPO_DIR}/SCL/hdm05/all/model=hdm05_lat-dim=${DIM}_beta=${BETA}/${ITER}/predictions_full.data \
 --scl \
--dd ${REPO_DIR}/mocap-vae-features/demo_pipeline/description/hdm05/category_description.txt \
+-dd ${REPO_DIR}/mocap-vae-features/pipelines/pipelines/hdm05/category_description.txt \
 "
 
-# -dd ${REPO_DIR}/mocap-vae-features/demo_pipeline/data/category_description.txt \
+# -dd ${REPO_DIR}/mocap-vae-features/pipelines/data/category_description.txt \
 
 eval "${COMMAND}" >> "${REPO_DIR}/results/scl/hdm05/all/lat_dim=${DIM}_beta=${BETA}/results.txt"
 
@@ -93,7 +93,7 @@ eval "${COMMAND}" >> "${REPO_DIR}/results/scl/hdm05/all/lat_dim=${DIM}_beta=${BE
 #-cv \
 #-k 18 \
 #--scl \
-#-dd ${REPO_DIR}/mocap-vae-features/demo_pipeline/description/pku-mmd/category_description.txt \
+#-dd ${REPO_DIR}/mocap-vae-features/pipelines/description/pku-mmd/category_description.txt \
 #"
 #echo "${COMMAND}"
 #mkdir -p "${REPO_DIR}/results/scl/pku-mmd/cv/lat_dim=${DIM}_beta=${BETA}"
@@ -103,7 +103,7 @@ eval "${COMMAND}" >> "${REPO_DIR}/results/scl/hdm05/all/lat_dim=${DIM}_beta=${BE
 #-fp ${REPO_DIR}/SCL/pku-mmd/cv/model=pku-mmd_lat-dim=${DIM}_beta=${BETA}/${ITER}/predictions_full.data \
 #-cv \
 #--scl \
-#-dd ${REPO_DIR}/mocap-vae-features/demo_pipeline/description/pku-mmd/category_description.txt \
+#-dd ${REPO_DIR}/mocap-vae-features/pipelines/description/pku-mmd/category_description.txt \
 #"
 #echo "${COMMAND}"
 #eval "${COMMAND}" >> "${REPO_DIR}/results/scl/pku-mmd/cv/lat_dim=${DIM}_beta=${BETA}/results-${ITER}.txt"
@@ -115,7 +115,7 @@ eval "${COMMAND}" >> "${REPO_DIR}/results/scl/hdm05/all/lat_dim=${DIM}_beta=${BE
 #-cs \
 #-k 18 \
 #--scl \
-#-dd ${REPO_DIR}/mocap-vae-features/demo_pipeline/description/pku-mmd/category_description.txt \
+#-dd ${REPO_DIR}/mocap-vae-features/pipelines/description/pku-mmd/category_description.txt \
 #"
 #echo "${COMMAND}"
 #mkdir -p "${REPO_DIR}/results/scl/pku-mmd/cs/lat_dim=${DIM}_beta=${BETA}"
@@ -125,7 +125,7 @@ eval "${COMMAND}" >> "${REPO_DIR}/results/scl/hdm05/all/lat_dim=${DIM}_beta=${BE
 #-fp ${REPO_DIR}/SCL/pku-mmd/cs/model=pku-mmd_lat-dim=${DIM}_beta=${BETA}/${ITER}/predictions_full.data \
 #-cs \
 #--scl \
-#-dd ${REPO_DIR}/mocap-vae-features/demo_pipeline/description/pku-mmd/category_description.txt \
+#-dd ${REPO_DIR}/mocap-vae-features/pipelines/description/pku-mmd/category_description.txt \
 #"
 #echo "${COMMAND}"
 #eval "${COMMAND}" >> "${REPO_DIR}/results/scl/pku-mmd/cs/lat_dim=${DIM}_beta=${BETA}/results-${ITER}.txt"
