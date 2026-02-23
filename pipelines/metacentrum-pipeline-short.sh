@@ -30,7 +30,7 @@ cd "${REPO_DIR}" || {
 }
 
 # every user on metacentrum should have access to this env
-conda activate "/storage/brno12-cerit/home/drking/.conda/envs/${ENV_NAME}" || {
+conda activate "/storage/brno2/home/abecvarov/envs/cuda4/${ENV_NAME}" || {
     echo >&2 "Conda environment does not exist!"
     exit 2
 }
