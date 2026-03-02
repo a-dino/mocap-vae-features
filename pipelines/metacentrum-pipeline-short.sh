@@ -7,7 +7,7 @@
 
 #This script uses conda eviroment available on metacentrum.cz
 #TODO: edit this path to the location of the repository
-REPO_DIR='/storage/brno2/home/abecvarov/experiments'
+REPO_DIR='/storage/brno12-cerit/home/abecvarov/experiments'
 ENV_NAME='cuda4'
 
 #Select parameters
@@ -30,7 +30,7 @@ cd "${REPO_DIR}" || {
 }
 
 # every user on metacentrum should have access to this env
-conda activate "/storage/brno2/home/abecvarov/envs/${ENV_NAME}" || {
+conda activate "/storage/brno12-cerit/home/drking/.conda/envs/${ENV_NAME}" || {
     echo >&2 "Conda environment does not exist!"
     exit 2
 }
